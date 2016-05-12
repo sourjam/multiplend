@@ -1,8 +1,8 @@
 {
-  "name": "angularfire-seed",
-  "description": "A starter project for Angular + Firebase with AngularFire",
+  "name": "multiplend",
+  "description": "Something",
   "version": "1.0.0",
-  "homepage": "https://github.com/firebase/angularfire-seed",
+  "homepage": "",
   "license": "MIT",
   "private": true,
   "dependencies": {
@@ -13,6 +13,8 @@
     "html5-boilerplate": "~4.3.0",
     "firebase": "2.2.2",
     "angularfire": "~1.0.0",
-    "mockfirebase": "~0.10.3"
+    "mockfirebase": "~0.10.3",
+    "angular-trix": "~1.0.2",
+    "oclazyload": "~1.0.9"
   }
 }
