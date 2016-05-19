@@ -1,0 +1,11 @@
+<link type="text/css" rel="stylesheet" href="/app/composer/directives/focusmode.css">
+<div class="focus--container">
+  <span class="focus__button--close"
+        ng-click="focusMode.enable = false;">Close</span>
+  <div class="focus__overlay"></div>
+  <div class="trix--wrapper">
+    {{content}}
+    <trix-editor angular-trix class="trix--focus"
+                 ng-model="content.aa.prose"></trix-editor>
+  </div>
+</div>

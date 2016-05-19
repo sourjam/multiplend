@@ -9,11 +9,14 @@
     vm.midfuncs = {};
     vm.endfuncs = {};
     vm.blockKeys = {};
+    vm.focusMode = { enable: false };
+    
     
     $scope.aafuncs = vm.aafuncs;
     $scope.midfuncs = vm.midfuncs;
     $scope.endfuncs = vm.endfuncs;
     $scope.blockKeys = vm.blockKeys;
+    $scope.focusMode = vm.focusMode;
     
     $scope.status = null;
     $scope.draft = null;
@@ -77,6 +80,16 @@
           console.log(err)
         }
       });
+    };
+    
+    // Focus Mode functions
+    vm.focusMode.overflow = function() {
+      var toggle = document.body.style.overflow;
+      if (toggle == 'hidden') {
+        document.body.style.overflow = 'auto';
+      } else {
+        document.body.style.overflow = 'hidden';
+      }
     };
     
     // Block key functions
@@ -153,7 +166,9 @@
     };
     
     vm.aafuncs.cout = function(key) {
+      $scope.focusMode.block = key;
       console.log(key)
+      console.log($scope.focusMode)
     }
     
     // Middle block functions
@@ -222,7 +237,7 @@
         $scope.draft.content.zz[newKey] = {
           label: 'Ending',
           prose: 'In the end...',
-          subtitle: 'An unfinished venture'
+          subtitle: 'In the end...'
         };
         $scope.draft.$save();
       } 

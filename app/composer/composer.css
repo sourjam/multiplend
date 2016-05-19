@@ -1,9 +1,5 @@
 /*LAYOUT*/
 
-.composer--margintop {
-/*  margin-top: 20px;*/
-}
-
 .composer__info {
   background-color: darkslategray;
   color: white;
@@ -50,9 +46,8 @@
 }
 
 .composer__section {
-  margin-top: 10px;
-  position: relative;
-  height: 50px;
+  margin-right: 20%;
+  margin-left: 20%;
 }
 
 .composer__header {
@@ -82,15 +77,29 @@
   background-color: goldenrod;
 }
 
-.trix-toolbar--margins {
+.focusButton {
   display: inline-block;
-  width: 5px;
+  position: relative;
+  margin-left: 10px;
+  width: 50px;
+  font-size: .8em;
+  text-align: center;
+  background-color: dimgray;
+  color: white;
+  border-radius: 5px;
+  top: -5px;
+}
+
+.focusButton:hover {
+  cursor: pointer;
+  color: pink;
 }
 
 .composer__trix-editor {
   margin-left: 10px;
   margin-right: 10px;
 }
+/*
 
 .composer__section--test {
   margin-top: 10px;
@@ -101,6 +110,7 @@
   height: 75px;
   position: relative;
 }
+*/
 
 .composer__block--begin {
   border: 3px solid darkslategray;
@@ -304,3 +314,56 @@
 .button--goto:hover {
   color: black;
 }
+
+/*FOCUS MODE*/
+
+.focus--enable {
+  position: fixed;
+  top: 10%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  left: 0;
+  z-index: 99;
+}
+
+.focus__button--close {
+  position: fixed;
+  top: 0;
+  right: 20%;
+  color: white;
+}
+.focus__button--close:hover {
+  text-decoration: underline;
+  cursor:pointer;
+}
+
+.focus--text {
+  color: white;
+}
+
+.focus__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  opacity: .97;
+  z-index: 91;
+}
+
+.trix--wrapper {
+  position: absolute;
+  z-index: 92;
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
+}
+
+.trix--focus {
+  width: 65%;
+}
+
