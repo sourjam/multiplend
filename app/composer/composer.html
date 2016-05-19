@@ -1,1 +1,174 @@
-<trix-editor></trix-editor>
+<div class="composer__section--title">
+  <div class="composer__header composer__header--title">
+    <span class="composer__number composer__number--title">1</span>
+    <span class="composer__headerText">Write Your Title: </span> 
+    <input class=" composer__input--title" ng-change="draft.$save()" ng-model="draft.title"/>
+  </div>
+</div>
+<!--BEGINNING SECTION-->
+<div class="composer__section--aa" id="scrollTo-aa">
+  <div class="composer__header composer__header--begin">
+    <span class="composer__number composer__number--begin">2</span>
+    <span class="composer__headerText">Write Your Beginning: </span> 
+  </div>
+  
+  <div class="composer__block--begin">
+    <div id="anchor-aa" class="composer__id--top">
+      <span class="composer__id--begin">{{draft.content.aa.label}}
+        <span ng-show="blockKeys.froms['aa']">is a destination from:</span>
+        <span ng-show="blockKeys.froms['aa']" ng-repeat="from in blockKeys.froms[key]">
+          <span class="composer__link" ng-click="blockKeys.goTo(from)">{{blockKeys.list[from].label}} {{from.slice(1)}}</span>
+        </span>
+      </span>
+      
+    </div>
+    <span class="trix-toolbar--margins"></span>
+    <trix-editor class="composer__trix-editor" angular-trix
+                 ng-change="aafuncs.updateSubtitle(); draft.$save()"
+                 ng-model="draft.content.aa.prose"></trix-editor>
+    <div class="composer__id--bottom">{{draft.content.aa.label}}</div>
+    <div class="composer__id--tag">
+      <label> leads to:</label>
+      <select ng-click="blockKeys.calculate();"
+              ng-model="draft.content.aa.to" ng-change="draft.$save(); blockKeys.calcFroms();">
+        <option value="{{draft.content.aa.to}}">
+          {{blockKeys.list[draft.content.aa.to].label}}
+          {{draft.content.aa.to.slice(1)}} - 
+          {{blockKeys.list[draft.content.aa.to].subtitle}}
+        </option>
+        <option ng-repeat="(key,val) in blockKeys.list"
+                ng-show="key != 'aa' && key != draft.content.aa.to"
+                value="{{key}}">{{val.label}} {{key.slice(1)}} - {{val.subtitle}}</option>
+      </select>
+      <span href class="composer__link" ng-click="blockKeys.goTo(draft.content.aa.to)">
+        Go to {{blockKeys.list[draft.content.aa.to].label}}
+        {{draft.content.aa.to.slice(1)}}
+      </span>
+    </div>  
+  </div>
+</div>
+<!--MIDDLE SECTION-->
+<div class="composer__section--middle">
+  <div class="composer__header composer__header--middle">
+    <span class="composer__number composer__number--middle">3</span>
+    <span class="composer__headerText">Write Your Middle: </span> 
+  </div>
+  <div ng-repeat="(key, val) in draft.content.bb" class="composer__block--middle">
+    <div>
+      <div id="anchor-{{key}}" class="composer__id--top">
+        <span class="composer__id--middle">{{val.label}} {{key.slice(1)}}
+          <span ng-show="blockKeys.froms[key]">is a destination from:</span>
+          
+          <span ng-show="blockKeys.froms[key]" ng-repeat="from in blockKeys.froms[key] track by $index">
+            <span ng-show="$index > 0">, </span>
+            <span ng-if="from == 'aa'" class="composer__link" ng-click="blockKeys.goTo(from)">{{blockKeys.list[from].label}}</span>
+            <span ng-if="from != 'aa'" class="composer__link" ng-click="blockKeys.goTo(from)">{{blockKeys.list[from].label}} {{from.slice(1)}}</span>
+            
+          </span>
+          
+        </span>
+        
+      </div>
+      <span class="trix-toolbar--margins"></span>
+      <trix-editor class="composer__trix-editor" angular-trix
+               ng-change="draft.$save()"
+               ng-model="val.prose"></trix-editor>
+      <div class="composer__lead">
+        <label style="padding-left: 20px" ng-if="!val.choices">{{val.label}} {{key.slice(1)}} leads to:</label>
+        <select ng-if="!val.choices" ng-click="blockKeys.calculate();" ng-model="val.to" ng-change="draft.$save(); blockKeys.calcFroms();">
+          <option value="{{val.to}}">
+            {{blockKeys.list[val.to].label}}
+            {{val.to.slice(1)}} - 
+            {{blockKeys.list[val.to].subtitle}}
+          </option>
+          <option ng-repeat="(key,val) in blockKeys.list"
+                  ng-show="key != 'aa'"
+                  value="{{key}}">{{val.label}} {{key.slice(1)}} - {{val.subtitle}}</option>
+        </select>
+        <span ng-if="!val.choices" href class="composer__link" ng-click="blockKeys.goTo(val.to)">
+          Go to {{blockKeys.list[val.to].label}}
+          {{val.to.slice(1)}}
+        </span>
+        <div class="composer__id--middle--choices" ng-if="val.choices">Choices for Middle {{key.slice(1)}}</div>
+        <div class="composer__editor--choices" ng-repeat="(key, val) in val.choices">
+          <trix-editor id="anchor-{{key}}" angular-trix
+               ng-change="draft.$save()"
+               ng-model="val.prose"></trix-editor>
+          <div class="composer__choices">
+            <label>This choice leads to:</label>
+            <select ng-click="blockKeys.calculate();" ng-model="val.to" ng-change="draft.$save(); blockKeys.calcFroms()">
+              <option>
+                {{blockKeys.list[val.to].label}}
+                {{val.to.slice(1)}} - 
+                {{blockKeys.list[val.to].subtitle}}
+              </option>
+              <option ng-if="key != 'aa'" ng-repeat="(key,val) in blockKeys.list"
+                      value="{{key}}">{{val.label}} {{key.slice(1)}} - {{val.subtitle}}</option>
+            </select>
+            <span href class="composer__link" ng-click="blockKeys.goTo(val.to)">
+              Go to {{blockKeys.list[val.to].label}}
+              {{val.to.slice(1)}}
+            </span>
+            <span class="composer__link button--remove" ng-click="midfuncs.removeChoice($parent.key, key)">Remove this Choice</span>
+          </div>
+        </div>
+        <div class="composer__buttonRow--right">
+          <span class="composer__button--right button--choice" ng-click="midfuncs.addChoice(key, val.choices)">Add New Choice</span>
+        </div>
+        
+      </div>
+    </div>
+    <div class="composer__button--row--middle composer__button--row">
+      <span class="composer__button--middle" ng-if="$last" ng-click="midfuncs.addProse(key)">Add New Middle</span>
+    </div>
+    
+  </div>
+</div>
+<!--END SECTION-->
+<div class="composer__section--ending">
+  <div class="composer__header composer__header--ending">
+    <span class="composer__number composer__number--ending">4</span>
+    <span class="composer__headerText">Write Your Endings: </span> 
+  </div>
+  <div ng-repeat="(key, val) in draft.content.zz" class="composer__block--ending">
+    <div>
+      <div id="anchor-{{key}}" class="composer__id--top">
+        <span class="composer__id--ending">{{val.label}} {{key.slice(1)}}
+          <span ng-show="blockKeys.froms[key]">is a destination from:</span>
+          <span ng-show="blockKeys.froms[key]" ng-repeat="from in blockKeys.froms[key] track by $index">
+            <span ng-show="$index > 0">, </span>
+            <span ng-if="from == 'aa'" class="composer__link" ng-click="blockKeys.goTo(from)">{{blockKeys.list[from].label}}</span>
+            <span ng-if="from != 'aa'" class="composer__link" ng-click="blockKeys.goTo(from)">{{blockKeys.list[from].label}} {{from.slice(1)}}</span>
+          </span>
+        </span>
+        
+      </div>
+      <span class="trix-toolbar--margins"></span>
+      <trix-editor class="composer__trix-editor" angular-trix
+               ng-change="draft.$save()"
+               ng-model="val.prose"></trix-editor>
+      <span class="composer__link button--remove" ng-click="endfuncs.removeEnding(key)">Remove this Ending</span>
+      <div class="composer__endmark">
+        <label><strong>Endmark</strong>:</label>
+        <input placeholder="100 Characters or less"/>
+      </div>
+    </div>
+    <div class="composer__button--row composer__button--row--ending">
+      <span class="composer__button--ending" ng-if="$last" ng-click="endfuncs.addEnding(key)">Add New Ending</span>
+    </div>
+  </div>
+</div>
+<!--TEST-->
+<div class="composer__section--ending">
+  <div class="composer__header composer__header--ending">
+    <span class="composer__number composer__number--ending">5</span>
+    <span class="composer__headerText">Theme Your Story: </span> 
+  </div>
+</div>
+<!--PUBLISH-->
+<div class="composer__section--ending">
+  <div class="composer__header composer__header--ending">
+    <span class="composer__number composer__number--ending">6</span>
+    <span class="composer__headerText">Publish Your Story: </span> 
+  </div>
+</div>

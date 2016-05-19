@@ -8,7 +8,8 @@ angular.module('myApp', [
     'oc.lazyLoad',
     'myApp.account',
     'myApp.chat',
-    'myApp.login'
+    'myApp.login',
+    'angularTrix'
   ])
   
   .config(['$routeProvider', function ($routeProvider) {
@@ -31,7 +32,7 @@ angular.module('myApp', [
       resolve: {
         lazy: ['$ocLazyLoad', function($ocLazyLoad){
           return $ocLazyLoad.load({
-            files: ['composer/composer.js', 'bower_components/trix/dist/trix.css', 'bower_components/trix/dist/trix.js']
+            files: ['composer/composer.js', 'composer/composer.css', 'bower_components/trix/dist/trix.css', 'bower_components/trix/dist/trix.js']
           });
         }],
         params: function($route) {

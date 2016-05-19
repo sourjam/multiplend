@@ -1,0 +1,306 @@
+/*LAYOUT*/
+
+.composer--margintop {
+/*  margin-top: 20px;*/
+}
+
+.composer__info {
+  background-color: darkslategray;
+  color: white;
+  font-family: sans-serif;
+  font-size: 1.5em;
+  padding: 10px;
+}
+
+.composer__number {
+  font-weight: bold;
+  background-color: white;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 19px;
+}
+
+.composer__number--title {
+  color: lightsalmon;
+}
+
+.composer__number--begin {
+  color: darkslategray;
+}
+
+.composer__number--middle {
+  color: lightblue;
+}
+.composer__number--ending {
+  color: goldenrod;
+}
+
+.composer__input--title {
+  background-color: white;
+  border: none;
+  outline: none;
+  font-size: 2em;
+  border-radius: 4px;
+  padding-left: 5px;
+  margin-left: 5px;
+}
+
+.composer__section {
+  margin-top: 10px;
+  position: relative;
+  height: 50px;
+}
+
+.composer__header {
+  color: white;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.composer__headerText {
+  font-size: 2em;
+  padding-left: 5px;
+}
+
+.composer__header--title {
+  background-color: lightsalmon;
+}
+
+.composer__header--begin {
+  background-color: darkslategray;
+}
+
+.composer__header--middle {
+  background-color: lightskyblue;
+}
+.composer__header--ending {
+  background-color: goldenrod;
+}
+
+.trix-toolbar--margins {
+  display: inline-block;
+  width: 5px;
+}
+
+.composer__trix-editor {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.composer__section--test {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  height: 75px;
+  position: relative;
+}
+
+.composer__block--begin {
+  border: 3px solid darkslategray;
+}
+
+.composer__block--middle {
+  border: 3px solid lightskyblue;
+}
+.composer__block--ending {
+  border: 3px solid goldenrod;
+}
+
+.composer__id--top {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.composer__id--bottom {
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.composer__id--tag {
+  display: inline-block;
+}
+
+.composer__id--begin { 
+  font-weight: bold;
+  color: whitesmoke;
+  background-color: darkslategray;
+  padding: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.composer__id--middle { 
+  font-weight: bold;
+  color: whitesmoke;
+  background-color: lightskyblue;
+  padding: 5px;
+  border-bottom-right-radius: 5px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.composer__id--middle--choices {
+  font-weight: bold;
+  color: whitesmoke;
+  background-color: lightskyblue;
+  padding: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.composer__id--ending {
+  font-weight: bold;
+  color: whitesmoke;
+  background-color: goldenrod;
+  padding: 5px;
+  border-bottom-right-radius: 5px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.composer__editor--choices {
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.composer__lead {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.trix--background {
+  background-color: white;
+}
+
+.composer__choices {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.composer_ending {
+  background-color: darkslategray;
+  padding: 4px;
+}
+
+.composer__endmark--indent {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 25px;
+}
+
+.composer__endlinks {
+  padding-left: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.composer__endmark {
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+/*UTILITY*/
+
+.composer__buttonRow--right {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.composer__button--right {
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 4px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.composer__button--right:hover {
+  color: black;
+}
+
+.button--choice {
+  background-color: limegreen;
+}
+
+.composer__button--row {
+  color: white;
+  padding: 4px;
+  font-weight: bold;
+}
+
+.composer__button--row--middle {
+  background-color: lightskyblue;
+}
+
+.composer__button--row--ending {
+  background-color: goldenrod;
+}
+
+.composer__button--middle {
+  color: lightskyblue;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 4px;
+  position: relative;
+  top: 2px;
+}
+
+.composer__button--ending {
+  color: goldenrod;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 4px;
+  position: relative;
+  top: 2px;
+}
+
+.composer__link {
+  font-weight: normal;
+  font-size: .9em;
+  color: #0645AD;
+}
+
+.composer__link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.composer__button {
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.button--remove {
+  padding-left:10px;
+  color: crimson;
+}
+
+.composer__button:hover {
+  color: black;
+}
+
+.button--goto {
+  background-color: forestgreen;
+}
+
+.button--goto:hover {
+  color: black;
+}
