@@ -46,8 +46,8 @@
 }
 
 .composer__section {
-  margin-right: 20%;
-  margin-left: 20%;
+  margin-right: 10%;
+  margin-left: 10%;
 }
 
 .composer__header {
@@ -60,6 +60,10 @@
 .composer__headerText {
   font-size: 2em;
   padding-left: 5px;
+}
+
+.composer__header--url {
+  background-color:darkslateblue;
 }
 
 .composer__header--title {
@@ -249,6 +253,8 @@
   color: white;
   padding: 4px;
   font-weight: bold;
+  padding-bottom: 10px;
+  text-align: center;
 }
 
 .composer__button--row--middle {
@@ -269,6 +275,10 @@
   top: 2px;
 }
 
+.composer__button--middle:hover {
+  color: black;
+}
+
 .composer__button--ending {
   color: goldenrod;
   background-color: white;
@@ -277,6 +287,10 @@
   padding: 4px;
   position: relative;
   top: 2px;
+}
+
+.composer__button--ending:hover {
+  color: black;
 }
 
 .composer__link {

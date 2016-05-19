@@ -11,7 +11,7 @@
     vm.blockKeys = {};
     vm.focusMode = { enable: false };
     
-    
+    $scope.draftUrl = $route.current.params.key;
     $scope.aafuncs = vm.aafuncs;
     $scope.midfuncs = vm.midfuncs;
     $scope.endfuncs = vm.endfuncs;

@@ -3,6 +3,17 @@
         ng-click="focusMode.key = null; focusMode.overflow()">Focus Off</span>
 </div>
 
+<!--DRAFT URL-->
+<div class="composer__section">
+  <div class="composer__header composer__header--url">
+    <span class="composer__headerText">Secret Draft URL: </span>
+    <a style="margin-left: 10px; color: gold; font-size: 1.5vw"
+       href="http://.com/composer/{{draftUrl}}">
+      http://.com/composer/{{draftUrl}}</a>
+  </div>
+</div>
+
+<!--TITLE SECTION-->
 <div class="composer__section">
   <div class="composer__header composer__header--title">
     <span class="composer__number composer__number--title">1</span>
@@ -144,7 +155,7 @@
     <span class="composer__number composer__number--ending">4</span>
     <span class="composer__headerText">Write Your Endings: </span> 
   </div>
-  <div ng-repeat="(key, val) in draft.content.zz">
+  <div ng-repeat="(key, val) in draft.content.zz track by $index">
     <div class="composer__block--ending" ng-class="{'focus--enable': focusMode.key == key}">
       <div id="anchor-{{key}}" class="composer__id--top">
         <span class="composer__id--ending">{{val.label}} {{key.slice(1)}}
@@ -164,7 +175,8 @@
       <trix-editor class="composer__trix-editor" angular-trix
                ng-change="draft.$save()"
                ng-model="val.prose"></trix-editor>
-      <span class="composer__link button--remove" ng-click="endfuncs.removeEnding(key)">Remove this Ending</span>
+      <span class="composer__link button--remove"
+            ng-click="endfuncs.removeEnding(key); focusMode.key = null">Remove this Ending</span>
       <div class="composer__endmark">
         <label><strong>Endmark</strong>:</label>
         <input placeholder="100 Characters or less"/>
@@ -179,7 +191,7 @@
 <div class="composer__section">
   <div class="composer__header composer__header--ending">
     <span class="composer__number composer__number--ending">5</span>
-    <span class="composer__headerText">Theme Your Story: </span> 
+    <span class="composer__headerText">Test Your Story: </span> 
   </div>
 </div>
 <!--PUBLISH-->
